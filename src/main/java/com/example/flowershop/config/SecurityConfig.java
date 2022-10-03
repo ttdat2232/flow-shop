@@ -13,6 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -49,9 +50,19 @@ public class SecurityConfig {
                      auth.antMatchers("/user/**").hasAnyAuthority("USER", "ADMIN");
                      auth.antMatchers("/admin/**").hasAuthority("ADMIN");
                  })
-                 .formLogin(login ->
-                         login.permitAll())
-                 .logout(logout -> logout.permitAll())
+                 .formLogin()
+                    .loginPage("/login")
+                    .usernameParameter("username")
+                    .passwordParameter("password")
+                    .defaultSuccessUrl("/")
+                    .failureUrl("/login?error")
+                    .permitAll()
+                    .and()
+                 .logout()
+                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET"))
+//                    .invalidateHttpSession(true)
+                    .permitAll()
+                    .and()
                  .httpBasic();
          return http.build();
     }

@@ -38,7 +38,9 @@ public class FirstData {
             account2.setAddress("Q9");
             accountRepository.save(account2);
         }
-        if (!productRepository.findById(1L).isPresent() || !productRepository.findById(2L).isPresent()) {
+        if (    !productRepository.findById(1L).isPresent() ||
+                !productRepository.findById(2L).isPresent() ||
+                !productRepository.findById(3L).isPresent()) {
             Product product = new Product();
             product.setBasePrice(10000);
             product.setDescription("Hoa Hồng Tím");
