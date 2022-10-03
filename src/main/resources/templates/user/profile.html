@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+    <h1>Lịch sử mua hàng của bạn</h1>
+    <table>
+        <thead>
+            <tr>
+                <td>Mã Đơn</td>
+                <td>Ngày mua</td>
+                <td>Chi tiết</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="order : ${listOrders}">
+                <td th:text="*{order.id}"></td>
+                <td th:text="*{order.date}"></td>
+                <td><a th:href="@{/user/profile/order/{orderId}/details(orderId=*{order.id})}">Chi tiết đơn hàng</a></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Cart</title>
+</head>
+<body>
+<div th:if="${session.cartLine == null}">
+    <h1>Bạn không có món hàng nào trong giỏ</h1>
+</div>
+    <div th:if="${session.cartLine}">
+        <table>
+            <thead>
+                <tr>
+                    <td>Mã Sản Phẩm</td>
+                    <td>Số Lượng</td>
+                </tr>
+            </thead>
+            <tbody>
+                <div th:each="mapItem : ${session.cartLine}">
+                    <tr th:each="item : ${mapItem}">
+                        <td th:utext="${item.key}"></td>
+                        <td th:utext="${item.value}"></td>
+                    </tr>
+                </div>
+            </tbody>
+        </table>
+        <a th:href="@{/user/saveOrder}">Buy</a>
+    </div>
+</body>
+</html>
