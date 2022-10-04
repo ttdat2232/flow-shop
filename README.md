@@ -12,5 +12,7 @@
   <li>MS SQL Server</li>
 </ul>
 
-<p>- In this web app I'm applying MVC design pattern so it great to use Spring MVC. It separates the tasks of each class for example: controller, service, repository..</p>
-<p>- Spring Security helping me to easily authenticate, authorize </p>
+<p>- In this web app I'm applying MVC design pattern so it great to use Spring MVC. It separates the tasks of each class. For example: controller, service, repository...</p>
+<p>- </p>
+<p>- Spring Security helping me easily authenticate, authorize to my application</p>
+<p>- I used Thymeleaf instead of JSP because Thymeleaf is more readable and isn't a weird mixture of Java code and html.</p>
