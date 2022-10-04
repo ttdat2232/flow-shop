@@ -24,7 +24,10 @@ public class Account implements Serializable {
     private Long id;
     private String username;
     private String password;
+    @Column(columnDefinition = "nvarchar(255)")
+    private String name;
     private String address;
+    private int status;
     private int role;
 
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, fetch = FetchType.EAGER, targetEntity = Order.class)

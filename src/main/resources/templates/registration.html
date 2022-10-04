@@ -48,9 +48,11 @@
             <input class="form-control" type="text" th:field="*{address}"/>
         </div>
         <div>
-            <label>Role:</label>
-            <input class="form-control" type="hidden" th:field="*{role}" th:value="2" readonly/>
+            <label>Họ tên: </label>
+            <input class="form-control" type="text" th:field="*{name}"/>
         </div>
+            <input type="hidden" th:field="*{role}">
+            <input type="hidden" th:field="*{status}">
         <br>
         <input type="submit" class="btn btn-primary" value="Đăng ký"/>
     </form>

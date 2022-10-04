@@ -42,6 +42,7 @@ public class HomeController {
         Account account = new Account();
         //Default account with manual sign up is user
         account.setRole(2);
+        account.setStatus(1);
         model.addAttribute("registerAccount", account);
         return "registration";
     }

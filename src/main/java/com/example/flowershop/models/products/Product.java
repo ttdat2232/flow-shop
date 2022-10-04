@@ -29,12 +29,15 @@ public class Product implements Serializable {
     @Column(columnDefinition = "nvarchar(255)")
     private String description;
 
+    private String imgPath;
+
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<OrderDetail> orderDetails = new ArrayList<>();
 
-    public Product(String type, float basePrice, String description) {
+    public Product(String type, float basePrice, String description, String imgPath) {
         this.type = type;
         this.basePrice = basePrice;
         this.description = description;
+        this.imgPath = imgPath;
     }
 }
