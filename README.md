@@ -12,4 +12,5 @@
   <li>MS SQL Server</li>
 </ul>
 
-<p>First I used Spring Framework because I'm learning it, It helps me to make a web app more faster than usual</p>
+<p>- In this web app I'm applying MVC design pattern so it great to use Spring MVC. It separates the tasks of each class for example: controller, service, repository..</p>
+<p>- Spring Security helping me to easily authenticate, authorize </p>
