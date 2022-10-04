@@ -1,5 +1,4 @@
 <h1>Flower Shop Management (still processing)</h1>
-<hr>
 <h2>Project's Description:</h2>
 <p>This simply web app is used by Customer to buy flower or Admin to manage his/her flower shop.</p>
 <h3>Some technologies I used for this web app:</h3>
