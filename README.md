@@ -13,7 +13,7 @@
 
 <p>- JPA helps fast query to get Data from database.</p>
 <p>- Spring Security helping me easily authenticate, authorize to my application.</p>
-<p>- I used Thymeleaf instead of JSP because Thymeleaf is more readable and isn't a weird mixture of Java code and html.</p>
+<p>- I used Thymeleaf instead of JSP because Thymeleaf is more readable and isn't a weird mixture of Java code and HTML.</p>
 <p>- Lomok for fast getter/setter constructor...</p>
 
 <h2>About this project:</h2>
