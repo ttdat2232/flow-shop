@@ -10,13 +10,17 @@
   <li>Maven</li>
   <li>Lombok</li>
 </ul>
-
-<p>- JPA helps fast query to get Data from database.</p>
-<p>- Spring Security helping me easily authenticate, authorize to my application.</p>
-<p>- I used Thymeleaf instead of JSP because Thymeleaf is more readable and isn't a weird mixture of Java code and HTML.</p>
-<p>- Lomok for fast getter/setter constructor...</p>
-
+<br>
+<h3>Why I used those technologies: </h3>
+<ul>
+  <li>JPA helps fast query to get Data from database</li>
+  <li>Spring Security helping me easily authenticate, authorize to my application</li>
+  <li>I used Thymeleaf instead of JSP because Thymeleaf is more readable and isn't a weird mixture of Java code and HTML</li>
+  <li>Lomok for fast getter/setter constructor...</li>
+</ul>
+<br/>
 <h2>About this project:</h2>
+<br/>
 <h3>Normal user:</h3>
 <ul>
   <li>View products</li>
@@ -27,6 +31,7 @@
   <li>View Orders</li>
   <li>View Orderdetails</li>
 </ul>
+<br/>
 <h3>Admin</h3>
 <ul>
   <li>Block user</li>
