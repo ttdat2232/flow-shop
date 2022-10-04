@@ -29,6 +29,9 @@
         <li class="nav-item">
             <a sec:authorize="isAuthenticated()" class="nav-link text-dark" th:href="@{/logout}" href="#">Đăng xuất</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" sec:authorize="hasAuthority('ADMIN')" th:href="@{/admin}">Trang Admin</a>
+        </li>
     </ul>
 </nav>
 <div class="container mt-2">
