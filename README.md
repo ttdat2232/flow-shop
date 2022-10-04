@@ -3,12 +3,12 @@
 <p>This simply web app is used by Customer to buy flower or Admin to manage his/her flower shop.</p>
 <h3>Some technologies I used for this web app:</h3>
 <ul>
-  <li>Java</li>
   <li>Spring Data JPA</li>
   <li>Spring Security</li>
   <li>Thymeleaf</li>
   <li>MS SQL Server</li>
   <li>Maven</li>
+  <li>Lombok</li>
 </ul>
 
 <p>- JPA helps fast query to get Data from database.</p>
