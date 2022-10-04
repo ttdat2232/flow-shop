@@ -16,6 +16,7 @@ public class HomeController {
     @Autowired
     private MainService mainService;
 
+
     @GetMapping(path = {"/", "index"})
     public String index(Model model) {
         model.addAttribute("productList", mainService.getAllProducts());
@@ -24,7 +25,11 @@ public class HomeController {
 
     @GetMapping(path = "/addToCart")
     public String addToCart(@RequestParam("productId") long productId, HttpServletRequest request, Model model) {
-        return mainService.addToCart(productId, request, model);
+        if (mainService.addToCart(productId, request))
+            model.addAttribute("AddToCartNotice", "<h1 style=\"color: green\">Thêm vào giỏ hàng thành công</h1>\n");
+        else
+            model.addAttribute("AddToCartNotice", "<h1 style=\"color: red\">Thêm vào giỏ hàng không thành công</h1>\n");
+        return "forward:/";
     }
 
     @GetMapping("/viewCart")
@@ -35,6 +40,7 @@ public class HomeController {
     @GetMapping("/registration")
     public String showRegistrationForm(Model model) {
         Account account = new Account();
+        //Default account with manual sign up is user
         account.setRole(2);
         model.addAttribute("registerAccount", account);
         return "registration";

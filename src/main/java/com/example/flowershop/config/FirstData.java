@@ -38,20 +38,16 @@ public class FirstData {
             account2.setAddress("Q9");
             accountRepository.save(account2);
         }
-        if (    !productRepository.findById(1L).isPresent() ||
-                !productRepository.findById(2L).isPresent() ||
-                !productRepository.findById(3L).isPresent()) {
-            Product product = new Product();
-            product.setBasePrice(10000);
-            product.setDescription("Hoa Hồng Tím");
-            product.setType("Hoa Hồng");
+        if (!productRepository.findById(1L).isPresent() &&
+            !productRepository.findById(2L).isPresent() &&
+            !productRepository.findById(3L).isPresent()) {
+            Product product = new Product("Hoa Hồng", 10000, "Hoa Hồng Tím");
             productRepository.save(product);
 
-            Product product2 = new Product();
-            product2.setBasePrice(10000);
-            product2.setDescription("Hoa Ly Trắng");
-            product2.setType("Hoa Ly");
+            Product product2 = new Product("Hoa Ly", 10000, "Hoa Ly Trắng");
             productRepository.save(product2);
+
+            Product product3 = new Product("Hoa Giấy", 100000, "Hoa Giấy Tím");
         }
 
     }

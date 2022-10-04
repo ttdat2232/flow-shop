@@ -21,12 +21,23 @@ public class MainService {
     @Autowired
     private AccountRepository accountRepository;
 
+    private List<Product> productList = new ArrayList<>();
 
-    public List<Product> getAllProducts() {
-        return productRepository.findAll();
+    public void setProductList(List<Product> productList) {
+        this.productList = productList;
     }
 
-    public String addToCart(long productId, HttpServletRequest request, Model model) {
+    public List<Product> getAllProducts() {
+        if (this.productList.isEmpty())
+            this.productList = productRepository.findAll();
+        return this.productList;
+    }
+
+//    public List<Product> getAllProducts() {
+//        return productRepository.findAll();
+//    }
+
+    public boolean addToCart(long productId, HttpServletRequest request) {
         Optional<Product> product = productRepository.findById(productId);
         Map<Long, Integer> cart = (Map<Long, Integer>) request.getSession().getAttribute("cartLine");
         if (product.isPresent()) {
@@ -41,11 +52,14 @@ public class MainService {
                     cart.put(productId, tempItem);
                 }
             }
-            model.addAttribute("AddToCartNotice", "<h1 style=\"color: green\">Thêm vào giỏ hàng thành công</h1>\n");
+//            model.addAttribute("AddToCartNotice", "<h1 style=\"color: green\">Thêm vào giỏ hàng thành công</h1>\n");
             request.getSession().setAttribute("cartLine", cart);
-        } else
-            model.addAttribute("AddToCartNotice", "<h1 style=\"color: red\">Thêm vào giỏ hàng không thành công</h1>\n");
-        return "forward:/index";
+            return true;
+
+        }
+//            model.addAttribute("AddToCartNotice", "<h1 style=\"color: red\">Thêm vào giỏ hàng không thành công</h1>\n");
+//        return "forward:/index";
+        return false;
     }
 
     public boolean registration(Account account) {
