@@ -40,13 +40,16 @@
     </div>
     <div th:if="${session.cartLine}">
         <h1>Giỏ hàng của bạn</h1>
+        <p th:utext="${removeStatus}"></p>
         <table class="table">
             <thead>
             <tr>
                 <td>Mã Sản Phẩm</td>
                 <td>Thông tin sản phẩm</td>
                 <td>Hình ảnh</td>
-                <td>Số Lượng</td>
+                <td>Số lượng</td>
+                <td>Giá tiền</td>
+                <td></td>
             </tr>
             </thead>
             <tbody>
@@ -55,10 +58,12 @@
                     <td th:text="${cartItem.value.productDescription}">description</td>
                     <td><img width="100px" height="100px" style="object-fit: cover" th:src="${cartItem.value.imgPath}"/></td>
                     <td th:text="${cartItem.value.quantity}"></td>
+                    <td th:text="${cartItem.value.price}"></td>
+                    <td><a class="btn btn-danger" th:href="@{/removeCartItem/{itemKey}(itemKey=${cartItem.key})}">Xóa</a></td>
                 </tr>
             </tbody>
         </table>
-        <a th:href="@{/user/saveOrder}">Mua hàng</a>
+        <a class="btn btn-success" th:href="@{/user/saveOrder}">Mua hàng</a>
     </div>
 </div>
 </body>

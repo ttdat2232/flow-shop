@@ -59,7 +59,7 @@ public class SecurityConfig {
                     .and()
                  .logout()
                     .logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET"))
-//                    .invalidateHttpSession(true)
+                    .invalidateHttpSession(true)
                     .permitAll()
                     .and()
                  .httpBasic();

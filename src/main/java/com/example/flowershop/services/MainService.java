@@ -21,6 +21,9 @@ public class MainService {
     @Autowired
     private AccountRepository accountRepository;
 
+    @Autowired
+    private AdminService adminService;
+
     private List<Product> productList = new ArrayList<>();
 
     public void setProductList(List<Product> productList) {
@@ -43,7 +46,7 @@ public class MainService {
         Map<Long, CartLineInfo> cart = (Map<Long, CartLineInfo>) request.getSession().getAttribute("cartLine");
         if (productOptional.isPresent()) {
             Product product = productOptional.get();
-            CartLineInfo item = new CartLineInfo(product.getDescription(), product.getImgPath(), 1);
+            CartLineInfo item = new CartLineInfo(product.getDescription(), product.getImgPath(), 1, product.getBasePrice() * 1);
             if (cart == null) {
                 cart = new HashMap<>();
                 cart.put(productId, item);
@@ -53,29 +56,13 @@ public class MainService {
                 if (tmpItem == null) cart.put(productId, item);
                 else {
                     tmpItem.setQuantity(tmpItem.getQuantity() + 1);
+                    tmpItem.setPrice(product.getBasePrice() * tmpItem.getQuantity());
                     cart.put(productId, tmpItem);
                 }
             }
             request.getSession().setAttribute("cartLine", cart);
             return true;
         }
-//        Map<Long, Integer> cart = (Map<Long, Integer>) request.getSession().getAttribute("cartLine");
-//        if (product.isPresent()) {
-//            if (cart == null) {
-//                cart = new HashMap<>();
-//                cart.put(productId, 1);
-//            } else {
-//                Integer tempItem = cart.get(productId);
-//                if (tempItem == null) cart.put(productId, 1);
-//                else {
-//                    tempItem++;
-//                    cart.put(productId, tempItem);
-//                }
-//            }
-//            request.getSession().setAttribute("cartLine", cart);
-//            return true;
-//
-//        }
         return false;
     }
 
@@ -85,6 +72,15 @@ public class MainService {
         if (checkAcc != null) return false;
         account.setPassword(new BCryptPasswordEncoder().encode(account.getPassword()));
         accountRepository.save(account);
+        adminService.getAccountList().add(account);
+        return true;
+    }
+
+    public boolean removeCartItem(Long key, HttpServletRequest request) {
+        Map<Long, CartLineInfo> cart = (Map<Long, CartLineInfo>) request.getSession().getAttribute("cartLine");
+        if (cart.get(key) == null) return false;
+        cart.remove(key);
+        request.getSession().setAttribute("cartLine", cart);
         return true;
     }
 }

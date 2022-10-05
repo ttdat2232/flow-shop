@@ -59,7 +59,7 @@ public class UserService {
             orderDetail.setOrder(createdOrder);
             orderDetail.setProduct(product);
             orderDetail.setQuantity(cartLine.get(productId).getQuantity());
-            orderDetail.setPrice(cartLine.get(productId).getQuantity()*product.getBasePrice());
+            orderDetail.setPrice(cartLine.get(productId).getQuantity() * product.getBasePrice());
             product.getOrderDetails().add(orderDetail);
             //save order
             productRepository.save(product);

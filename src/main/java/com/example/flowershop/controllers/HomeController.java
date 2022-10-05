@@ -37,11 +37,21 @@ public class HomeController {
         return "YourCart";
     }
 
+    @GetMapping("/removeCartItem/{itemKey}")
+    public String removeCartItem(@PathVariable("itemKey")Long key, Model model, HttpServletRequest request) {
+        if (mainService.removeCartItem(key, request))
+            model.addAttribute("removeStatus", "<h2 style=\"color: red\">Xóa thành công</h2>");
+        else
+            model.addAttribute("removeStatus", "<h2 style=\"color: red\">Xóa không thành công</h2>");
+        return "forward:/viewCart";
+    }
+
     @GetMapping("/registration")
     public String showRegistrationForm(Model model) {
         Account account = new Account();
         //Default account with manual sign up is user
         account.setRole(2);
+        //Default account with manual sign up is active
         account.setStatus(1);
         model.addAttribute("registerAccount", account);
         return "registration";

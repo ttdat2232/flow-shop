@@ -10,4 +10,6 @@ public class CartLineInfo {
     private String productDescription;
     private String imgPath;
     private int quantity;
+    private float price;
+
 }

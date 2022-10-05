@@ -36,6 +36,7 @@
 </nav>
 <div class="container mt-2">
     <h1>Welcome <span sec:authentication="name">Account name</span></h1>
+    <h2 th:utext="${accountStatus}"></h2>
     <h2>Danh sách người dùng: </h2>
     <table class="table">
         <thead>
@@ -45,6 +46,7 @@
                 <td>Địa chỉ</td>
                 <td>Quyền</td>
                 <td>Trạng thái</td>
+                <td></td>
             </tr>
         </thead>
         <tbody>
@@ -58,8 +60,15 @@
                 </th:block>
                 <th:block th:switch="*{account.status}">
                     <td th:case="1">Bình Thường</td>
-                    <td th:case="2">Bị chặn</td>
+                    <td th:case="0">Bị chặn</td>
                 </th:block>
+                <th:block th:if="*{account.role != 1}">
+                    <th:block th:switch="*{account.status}">
+                        <td th:case="1"><a class="btn btn-danger" th:href="@{/admin/block/{accountId}(accountId=*{account.id})}">Chặn</a></td>
+                        <td th:case="0"><a class="btn btn-primary" th:href="@{/admin/unblock/{accountId}(accountId=*{account.id})}">Bỏ chặn</a></td>
+                    </th:block>
+                </th:block>
+
             </tr>
         </tbody>
     </table>

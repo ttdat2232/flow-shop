@@ -59,7 +59,7 @@
             <td><img height="100px" width="100px" style="object-fit: cover" th:src="*{product.imgPath}"/></td>
             <td th:text="*{product.description}"></td>
             <td th:text="*{product.basePrice}"></td>
-            <td><a th:href="@{/addToCart(productId=*{product.id})}">Thêm vào giỏ</a></td>
+            <td><a class="btn btn-success" th:href="@{/addToCart(productId=*{product.id})}">Thêm vào giỏ hàng</a></td>
         </tr>
         </tbody>
     </table>
