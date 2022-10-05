@@ -7,12 +7,14 @@ public class ShowOderDetail {
     private float price;
     private int quantity;
     private String productDescription;
+    private String imgPath;
 
-    public ShowOderDetail(Long id, float price, int quantity, String productDescription) {
+    public ShowOderDetail(Long id, float price, int quantity, String productDescription, String imgPath) {
         this.id = id;
         this.price = price;
         this.quantity = quantity;
         this.productDescription = productDescription;
+        this.imgPath = imgPath;
     }
 
     public ShowOderDetail() {
@@ -48,5 +50,13 @@ public class ShowOderDetail {
 
     public void setProductDescription(String productDescription) {
         this.productDescription = productDescription;
+    }
+
+    public String getImgPath() {
+        return imgPath;
+    }
+
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
     }
 }

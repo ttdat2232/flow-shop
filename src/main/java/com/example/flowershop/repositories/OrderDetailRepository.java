@@ -15,7 +15,7 @@ public interface OrderDetailRepository extends JpaRepository<OrderDetail, Long> 
     List<OrderDetail> findOrderDetailByOrder_Id(Long orderId);
 
 
-    @Query("SELECT new com.example.flowershop.models.order.ShowOderDetail(o.id, o.price, o.quantity, p.description) " +
+    @Query("SELECT new com.example.flowershop.models.order.ShowOderDetail(o.id, o.price, o.quantity, p.description, p.imgPath) " +
             "FROM OrderDetail o JOIN Product p " +
             "ON o.product.id = p.id " +
             "WHERE o.order.id = :orderId")

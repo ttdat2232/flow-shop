@@ -41,17 +41,25 @@
         <thead>
             <tr>
                 <td>Mã Số</td>
-                <td>Tên tài khoản</td>
+                <td>Họ tên khách hàng</td>
                 <td>Địa chỉ</td>
-                <td>Mã chức vụ</td>
+                <td>Quyền</td>
+                <td>Trạng thái</td>
             </tr>
         </thead>
         <tbody>
             <tr th:each="account : ${accountList}">
                 <td th:text="*{account.id}"></td>
-                <td th:text="*{account.username}"></td>
+                <td th:text="*{account.name}"></td>
                 <td th:text="*{account.address}"></td>
-                <td th:text="*{account.role}"></td>
+                <th:block th:switch="*{account.role}">
+                    <td th:case="1">Admin</td>
+                    <td th:case="2">khách hàng</td>
+                </th:block>
+                <th:block th:switch="*{account.status}">
+                    <td th:case="1">Bình Thường</td>
+                    <td th:case="2">Bị chặn</td>
+                </th:block>
             </tr>
         </tbody>
     </table>

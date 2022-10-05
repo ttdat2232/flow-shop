@@ -7,7 +7,6 @@ import com.example.flowershop.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.*;
@@ -52,13 +51,10 @@ public class MainService {
                     cart.put(productId, tempItem);
                 }
             }
-//            model.addAttribute("AddToCartNotice", "<h1 style=\"color: green\">Thêm vào giỏ hàng thành công</h1>\n");
             request.getSession().setAttribute("cartLine", cart);
             return true;
 
         }
-//            model.addAttribute("AddToCartNotice", "<h1 style=\"color: red\">Thêm vào giỏ hàng không thành công</h1>\n");
-//        return "forward:/index";
         return false;
     }
 

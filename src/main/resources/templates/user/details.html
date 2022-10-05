@@ -9,7 +9,7 @@
 </head>
 <body>
     <nav class="navbar bg-light navbar-expand-lg justify-content-center">
-        <a class="navbar-brand ps-4" href="#">Logo</a>
+        <a class="navbar-brand ps-4" th:href="@{/}"><img width="100px" src="https://i.ibb.co/YXHFYQ0/pngegg.png" alt="logo"/></a>
         <ul class="navbar-nav me-auto">
             <li class="nav-item">
                 <a class="nav-link text-dark" th:href="@{/}" href="#">Trang chủ</a>
@@ -31,17 +31,19 @@
             <thead>
             <tr>
                 <td>Mã số</td>
+                <td>Thông tin</td>
+                <td>Hình ảnh</td>
                 <td>số lượng</td>
                 <td>Giá tiền</td>
-                <td>Thông tin</td>
             </tr>
             </thead>
             <tbody>
             <tr th:each="showOrderDetail : ${listOrderDetails}">
                 <td th:text="*{showOrderDetail.id}"></td>
+                <td th:text="*{showOrderDetail.productDescription}"></td>
+                <td><img height="100px" width="100px" style="object-fit: cover" th:src="*{showOrderDetail.imgPath}" th:alt="*{showOrderDetail.productDescription}"/></td>
                 <td th:text="*{showOrderDetail.quantity}"></td>
                 <td th:text="*{showOrderDetail.price}"></td>
-                <td th:text="*{showOrderDetail.productDescription}"></td>
             </tr>
             </tbody>
         </table>

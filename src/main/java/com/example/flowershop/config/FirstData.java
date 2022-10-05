@@ -44,8 +44,11 @@ public class FirstData {
         }
         if (!productRepository.findById(1L).isPresent() &&
             !productRepository.findById(2L).isPresent() &&
-            !productRepository.findById(3L).isPresent()) {
-            Product product = new Product("Hoa Hồng", 10000, "Hoa Hồng Đỏ", "https://i.ibb.co/3FZR6kf/Rose.jpg");
+            !productRepository.findById(3L).isPresent() &&
+            !productRepository.findById(4L).isPresent() &&
+            !productRepository.findById(5L).isPresent()) {
+
+            Product product = new Product("Hoa Hồng", 10000, "Hoa Hồng Vàng", "https://i.ibb.co/wwQ1zr6/hoa-hong-vang.jpg");
             productRepository.save(product);
 
             Product product2 = new Product("Hoa Ly", 10000, "Hoa Ly Trắng", "https://i.ibb.co/R0wjgxX/hoa-ly.jpg");
@@ -54,6 +57,11 @@ public class FirstData {
             Product product3 = new Product("Hoa Giấy", 100000, "Hoa Giấy Tím", "https://i.ibb.co/6sbvc7N/HoaGiay.jpg");
             productRepository.save(product3);
 
+            Product product4 = new Product("Hoa Lan", 2000000000, "Lan đột biến", "https://i.ibb.co/qB6FdtM/lan-dot-bien.jpg");
+            productRepository.save(product4);
+
+            Product product5 = new Product("Hoa Hồng", 10000, "Hoa Hồng Đỏ", "https://i.ibb.co/3FZR6kf/Rose.jpg");
+            productRepository.save(product5);
         }
 
     }
