@@ -19,7 +19,6 @@
   <li>Lomok for fast getter/setter constructor...</li>
 </ul>
 <h2>About this project:</h2>
-<br/>
 <h3>Normal user:</h3>
 <ul>
   <li>View products</li>
