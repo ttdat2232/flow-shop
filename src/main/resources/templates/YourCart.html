@@ -44,16 +44,18 @@
             <thead>
             <tr>
                 <td>Mã Sản Phẩm</td>
+                <td>Thông tin sản phẩm</td>
+                <td>Hình ảnh</td>
                 <td>Số Lượng</td>
             </tr>
             </thead>
             <tbody>
-            <div th:each="mapItem : ${session.cartLine}">
-                <tr th:each="item : ${mapItem}">
-                    <td th:utext="${item.key}"></td>
-                    <td th:utext="${item.value}"></td>
+                <tr th:each="cartItem : ${session.cartLine}">
+                    <td th:text="${cartItem.key}">Key</td>
+                    <td th:text="${cartItem.value.productDescription}">description</td>
+                    <td><img width="100px" height="100px" style="object-fit: cover" th:src="${cartItem.value.imgPath}"/></td>
+                    <td th:text="${cartItem.value.quantity}"></td>
                 </tr>
-            </div>
             </tbody>
         </table>
         <a th:href="@{/user/saveOrder}">Mua hàng</a>

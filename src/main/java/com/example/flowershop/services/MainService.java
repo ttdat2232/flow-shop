@@ -1,6 +1,7 @@
 package com.example.flowershop.services;
 
 import com.example.flowershop.models.account.Account;
+import com.example.flowershop.models.cart.CartLineInfo;
 import com.example.flowershop.models.products.Product;
 import com.example.flowershop.repositories.AccountRepository;
 import com.example.flowershop.repositories.ProductRepository;
@@ -37,24 +38,44 @@ public class MainService {
 //    }
 
     public boolean addToCart(long productId, HttpServletRequest request) {
-        Optional<Product> product = productRepository.findById(productId);
-        Map<Long, Integer> cart = (Map<Long, Integer>) request.getSession().getAttribute("cartLine");
-        if (product.isPresent()) {
+        Optional<Product> productOptional = productRepository.findById(productId);
+
+        Map<Long, CartLineInfo> cart = (Map<Long, CartLineInfo>) request.getSession().getAttribute("cartLine");
+        if (productOptional.isPresent()) {
+            Product product = productOptional.get();
+            CartLineInfo item = new CartLineInfo(product.getDescription(), product.getImgPath(), 1);
             if (cart == null) {
                 cart = new HashMap<>();
-                cart.put(productId, 1);
+                cart.put(productId, item);
             } else {
-                Integer tempItem = cart.get(productId);
-                if (tempItem == null) cart.put(productId, 1);
+                CartLineInfo tmpItem = cart.get(productId);
+
+                if (tmpItem == null) cart.put(productId, item);
                 else {
-                    tempItem++;
-                    cart.put(productId, tempItem);
+                    tmpItem.setQuantity(tmpItem.getQuantity() + 1);
+                    cart.put(productId, tmpItem);
                 }
             }
             request.getSession().setAttribute("cartLine", cart);
             return true;
-
         }
+//        Map<Long, Integer> cart = (Map<Long, Integer>) request.getSession().getAttribute("cartLine");
+//        if (product.isPresent()) {
+//            if (cart == null) {
+//                cart = new HashMap<>();
+//                cart.put(productId, 1);
+//            } else {
+//                Integer tempItem = cart.get(productId);
+//                if (tempItem == null) cart.put(productId, 1);
+//                else {
+//                    tempItem++;
+//                    cart.put(productId, tempItem);
+//                }
+//            }
+//            request.getSession().setAttribute("cartLine", cart);
+//            return true;
+//
+//        }
         return false;
     }
 

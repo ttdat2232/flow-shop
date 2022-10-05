@@ -1,6 +1,7 @@
 package com.example.flowershop.services;
 
 import com.example.flowershop.models.account.Account;
+import com.example.flowershop.models.cart.CartLineInfo;
 import com.example.flowershop.models.configmodels.CustomUserDetails;
 import com.example.flowershop.models.order.Order;
 import com.example.flowershop.models.order.OrderDetail;
@@ -37,7 +38,7 @@ public class UserService {
     public boolean saveOrder(CustomUserDetails account, HttpServletRequest request) {
         boolean check = false;
         Account acc = account.getAccount();
-        Map<Long, Integer> cartLine = (Map<Long, Integer>) request.getSession().getAttribute("cartLine");
+        Map<Long, CartLineInfo> cartLine = (Map<Long, CartLineInfo>) request.getSession().getAttribute("cartLine");
         LocalDate currentDate = LocalDate.now();
         Order order = orderRepository.findOrderByDateAndAccount_Id(currentDate, acc.getId());
         Order createdOrder;
@@ -57,8 +58,8 @@ public class UserService {
             // set order detail attribute
             orderDetail.setOrder(createdOrder);
             orderDetail.setProduct(product);
-            orderDetail.setQuantity(cartLine.get(productId));
-            orderDetail.setPrice(cartLine.get(productId)*product.getBasePrice());
+            orderDetail.setQuantity(cartLine.get(productId).getQuantity());
+            orderDetail.setPrice(cartLine.get(productId).getQuantity()*product.getBasePrice());
             product.getOrderDetails().add(orderDetail);
             //save order
             productRepository.save(product);
