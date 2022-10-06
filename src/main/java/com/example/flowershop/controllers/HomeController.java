@@ -19,7 +19,7 @@ public class HomeController {
 
     @GetMapping(path = {"/", "index"})
     public String index(Model model) {
-        model.addAttribute("productList", mainService.getAllProducts());
+        model.addAttribute("productList", mainService.getAllAvailableProducts());
         return "index";
     }
 

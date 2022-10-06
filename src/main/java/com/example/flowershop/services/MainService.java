@@ -24,21 +24,30 @@ public class MainService {
     @Autowired
     private AdminService adminService;
 
-    private List<Product> productList = new ArrayList<>();
+    private List<Product> availableProductList = new ArrayList<>();
 
-    public void setProductList(List<Product> productList) {
-        this.productList = productList;
+    private List<Product> allProduct = new ArrayList<>();
+
+    public void resetAllProducts() {
+        this.allProduct = productRepository.findAll();
     }
 
-    public List<Product> getAllProducts() {
-        if (this.productList.isEmpty())
-            this.productList = productRepository.findAll();
-        return this.productList;
+    public List<Product> getAllProduct() {
+        if (this.allProduct.isEmpty())
+            this.allProduct = productRepository.findAll();
+        return this.allProduct;
     }
 
-//    public List<Product> getAllProducts() {
-//        return productRepository.findAll();
-//    }
+    public void resetAllAvailableProducts() {
+        this.availableProductList = productRepository.findAllByStatus(1);
+    }
+
+    public List<Product> getAllAvailableProducts() {
+        if (this.availableProductList.isEmpty())
+            this.availableProductList = productRepository.findAllByStatus(1);
+        return this.availableProductList;
+    }
+
 
     public boolean addToCart(long productId, HttpServletRequest request) {
         Optional<Product> productOptional = productRepository.findById(productId);
