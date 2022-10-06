@@ -39,7 +39,7 @@
         <tr th:each="order : ${listOrders}">
             <td th:text="*{order.id}"></td>
             <td th:text="*{order.date}"></td>
-            <td><a th:href="@{/user/profile/order/{orderId}/details(orderId=*{order.id})}">Chi tiết đơn hàng</a></td>
+            <td><a class="btn btn-info" th:href="@{/user/profile/order/{orderId}/details(orderId=*{order.id})}">Chi tiết đơn hàng</a></td>
         </tr>
         </tbody>
     </table>

@@ -37,10 +37,10 @@
 </nav>
 <div class="container mt-2">
     <div sec:authorize="isAuthenticated()">
-        <h1>Welcome <span sec:authentication="name">Username</span></h1>
+        <h1>Chào mừng bạn chở lại, <span sec:authentication="principal.account.name">Username</span></h1>
 <!--        <span sec:authentication="principal.authorities">Roles</span>-->
     </div>
-    <h1>Chào mừng quý khách</h1>
+    <h1 sec:authorize="!isAuthenticated()">Chào mừng quý khách</h1>
     <h2>Danh sách sản phẩm</h2>
     <h2 th:utext="${AddToCartNotice}"></h2>
     <h2 th:utext="${saveOrderStatus}"></h2>

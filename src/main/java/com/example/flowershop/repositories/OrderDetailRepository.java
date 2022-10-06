@@ -7,7 +7,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public interface OrderDetailRepository extends JpaRepository<OrderDetail, Long> {
@@ -20,4 +22,7 @@ public interface OrderDetailRepository extends JpaRepository<OrderDetail, Long> 
             "ON o.product.id = p.id " +
             "WHERE o.order.id = :orderId")
     List<ShowOderDetail> findShowOrderDetails(@Param("orderId")Long orderId);
+
+    @Query("SELECT SUM(od.price) FROM OrderDetail od GROUP BY od.order.id HAVING od.order.id = :orderId")
+    Float getTotalPriceByOrderId(@Param("orderId")Long orderId);
 }
