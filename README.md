@@ -18,9 +18,7 @@
   <li>I used Thymeleaf instead of JSP because Thymeleaf is more readable and isn't a weird mixture of Java code and HTML</li>
   <li>Lomok for fast getter/setter constructor...</li>
 </ul>
-<br/>
 <h2>About this project:</h2>
-<br/>
 <h3>Normal user:</h3>
 <ul>
   <li>View products</li>
@@ -31,7 +29,6 @@
   <li>View Orders</li>
   <li>View Orderdetails</li>
 </ul>
-<br/>
 <h3>Admin</h3>
 <ul>
   <li>Block user</li>
