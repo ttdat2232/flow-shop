@@ -1,6 +1,5 @@
 package com.example.flowershop.controllers;
 
-import com.example.flowershop.models.account.Account;
 import com.example.flowershop.models.configmodels.CustomUserDetails;
 import com.example.flowershop.models.order.ShowOderDetail;
 import com.example.flowershop.services.UserService;
@@ -28,7 +27,7 @@ public class UserController {
             model.addAttribute("saveOrderStatus","<h1 style=\"color: green\">Cảm ơn quý khách đã mua hàng</h1>");
         }
         else
-            model.addAttribute("saveOrderStatus", "<h1 style=\"color: red\">Đơn hàng của quý khách đã xử lý thất bại</h1>");
+            model.addAttribute("saveOrderStatus", "<h1 style=\"color: red\">Đơn hàng của quý khách xử lý thất bại</h1>");
         return "forward:/";
     }
 

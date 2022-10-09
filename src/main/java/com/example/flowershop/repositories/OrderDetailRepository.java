@@ -25,4 +25,7 @@ public interface OrderDetailRepository extends JpaRepository<OrderDetail, Long> 
 
     @Query("SELECT SUM(od.price) FROM OrderDetail od GROUP BY od.order.id HAVING od.order.id = :orderId")
     Float getTotalPriceByOrderId(@Param("orderId")Long orderId);
+
+    @Query("SELECT SUM(od.price) FROM OrderDetail od")
+    Float getTotalMoney();
 }

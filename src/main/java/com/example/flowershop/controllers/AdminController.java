@@ -29,6 +29,7 @@ public class AdminController {
 
     @GetMapping
     public String admin(Model model) {
+        model.addAttribute("totalIncome", adminService.getTotalIncome());
         model.addAttribute("accountList", adminService.getAccountList());
         return "admin/index";
     }
@@ -54,7 +55,7 @@ public class AdminController {
     @GetMapping("/account/{accountId}/{name}/order")
     public String showUserOder(@PathVariable("accountId")Long accountId, @PathVariable("name")String name, Model model) {
         model.addAttribute("userName", name);
-        model.addAttribute("ordersList", userService.userOrders(accountId));
+        model.addAttribute("ordersList", adminService.getUserOrders(accountId));
         return "admin/userOrder";
     }
 
@@ -80,6 +81,7 @@ public class AdminController {
             model.addAttribute("deleteStatus", "<h2 style='color: red'>Xóa sản phẩm thành công</h2>");
             //Reset the data in view after delete
             mainService.resetAllProducts();
+            mainService.resetAllAvailableProducts();
         }
         else
             model.addAttribute("deleteStatus", "<h2 style='color: red'>Xóa sản phẩm không thành công</h2>");
@@ -98,6 +100,7 @@ public class AdminController {
         if (adminService.updateProduct(product)) {
             model.addAttribute("updateStatus", "Cập nhật thành công");
             mainService.resetAllProducts();
+            mainService.resetAllAvailableProducts();
         } else
             model.addAttribute("updateStatus", "Cập nhật thành công");
         return "admin/update";
@@ -114,6 +117,7 @@ public class AdminController {
         if (adminService.addProduct(product)) {
             model.addAttribute("addStatus", "Thêm vào thành công");
             mainService.resetAllProducts();
+            mainService.resetAllAvailableProducts();
         } else
             model.addAttribute("addStatus", "Thêm vào không thành công");
         return "admin/add";

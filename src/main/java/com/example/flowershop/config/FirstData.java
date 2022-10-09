@@ -2,14 +2,20 @@ package com.example.flowershop.config;
 
 
 import com.example.flowershop.models.account.Account;
+import com.example.flowershop.models.order.Order;
+import com.example.flowershop.models.order.OrderDetail;
 import com.example.flowershop.models.products.Product;
 import com.example.flowershop.repositories.AccountRepository;
+import com.example.flowershop.repositories.OrderDetailRepository;
+import com.example.flowershop.repositories.OrderRepository;
 import com.example.flowershop.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
+import java.time.LocalDate;
 
 @Configuration
 public class FirstData {
@@ -19,6 +25,12 @@ public class FirstData {
 
     @Autowired
     ProductRepository productRepository;
+
+    @Autowired
+    OrderRepository orderRepository;
+
+    @Autowired
+    OrderDetailRepository orderDetailRepository;
 
     @Bean
     public void initiateFirstParam() {
@@ -66,6 +78,27 @@ public class FirstData {
 
             Product product6 = new Product("test", 100000, "test", "test", 1);
             productRepository.save(product6);
+        }
+
+        if (!orderRepository.findById(1L).isPresent()) {
+            LocalDate date = LocalDate.parse("2022-07-07");
+
+            Order order = new Order(date);
+            Account account = accountRepository.findById(2L).get();
+            order.setAccount(account);
+            account.getOrders().add(order);
+            accountRepository.save(account);
+
+            Product product = productRepository.findById(1L).get();
+            Order order2 = orderRepository.findOrderByDateAndAccount_Id(date, 2L);
+
+            OrderDetail od = new OrderDetail();
+            od.setQuantity(10);
+            od.setProduct(product);
+            od.setOrder(order2);
+            od.setPrice(10 * product.getBasePrice());
+            product.getOrderDetails().add(od);
+            productRepository.save(product);
         }
 
     }

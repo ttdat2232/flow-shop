@@ -9,7 +9,7 @@
 </head>
 <body>
 <nav class="navbar bg-light navbar-expand-lg justify-content-center">
-    <a class="navbar-brand ps-4" href=""><img width="100px" src="https://i.ibb.co/YXHFYQ0/pngegg.png" alt="logo"/></a>
+    <a class="navbar-brand ps-4" th:href="@{/}"><img width="100px" src="https://i.ibb.co/YXHFYQ0/pngegg.png" alt="logo"/></a>
     <ul class="navbar-nav me-auto">
         <li class="nav-item">
             <a class="nav-link text-dark" th:href="@{/}" href="#">Trang chủ</a>
@@ -42,6 +42,7 @@
 </nav>
 <div class="container mt-2">
     <h1>Chào mừng bạn chở lại, <span sec:authentication="principal.account.name">Username</span></h1>
+    <h2>Tổng tiền đã thu được <span th:utext="${totalIncome}"></span> VND</h2>
     <h2 th:utext="${accountStatus}"></h2>
     <h2>Danh sách người dùng: </h2>
     <table class="table">

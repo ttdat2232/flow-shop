@@ -5,6 +5,8 @@ import com.example.flowershop.models.order.Order;
 import com.example.flowershop.models.order.OrderDetail;
 import com.example.flowershop.models.products.Product;
 import com.example.flowershop.repositories.AccountRepository;
+import com.example.flowershop.repositories.OrderDetailRepository;
+import com.example.flowershop.repositories.OrderRepository;
 import com.example.flowershop.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,10 +19,16 @@ import java.util.Optional;
 public class AdminService {
 
     @Autowired
+    private OrderRepository orderRepository;
+
+    @Autowired
     private ProductRepository productRepository;
 
     @Autowired
     private AccountRepository accountRepository;
+
+    @Autowired
+    private OrderDetailRepository orderDetailRepository;
 
 
     private List<Account> accountList = new ArrayList<>();
@@ -91,5 +99,17 @@ public class AdminService {
             return true;
         }
         return false;
+    }
+
+    public float getTotalIncome() {
+        Float total = orderDetailRepository.getTotalMoney();
+        if (total == null) return 0;
+        return total;
+    }
+
+    public List<Order> getUserOrders(Long accountId) {
+        List<Order> list = orderRepository.findByAccount_Id(accountId);
+        if (list == null) return new ArrayList<>();
+        return list;
     }
 }

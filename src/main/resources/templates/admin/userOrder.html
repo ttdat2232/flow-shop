@@ -9,7 +9,7 @@
 </head>
 <body>
 <nav class="navbar bg-light navbar-expand-lg justify-content-center">
-  <a class="navbar-brand ps-4" href=""><img width="100px" src="https://i.ibb.co/YXHFYQ0/pngegg.png" alt="logo"/></a>
+  <a class="navbar-brand ps-4" th:href="@{/}"><img width="100px" src="https://i.ibb.co/YXHFYQ0/pngegg.png" alt="logo"/></a>
   <ul class="navbar-nav me-auto">
     <li class="nav-item">
       <a class="nav-link text-dark" th:href="@{/}" href="#">Trang chủ</a>
@@ -33,7 +33,7 @@
       <a class="nav-link" sec:authorize="hasAuthority('ADMIN')" th:href="@{/admin}">Trang Admin</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" sec:authorize="hasAuthority('ADMIN')" th:href="@{/admin/product}">Quản lý sản phẩm</a>
+      <a class="nav-link text-dark" sec:authorize="hasAuthority('ADMIN')" th:href="@{/admin/product}">Quản lý sản phẩm</a>
     </li>
     <li class="nav-item">
       <a class="nav-link text-dark" sec:authorize="hasAuthority('ADMIN')" th:href="@{/admin/product/add}">Thêm sản phẩm</a>

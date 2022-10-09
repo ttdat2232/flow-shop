@@ -37,12 +37,6 @@ public class UserService {
     @Autowired
     OrderDetailRepository orderDetailRepository;
 
-    private List<Order> orderList = new ArrayList<>();
-
-    public Optional<Account> getUserById(Long id) {
-        return accountRepository.findById(id);
-    }
-
     public float getPriceOfAllOrderDetails(List<ShowOderDetail> showOderDetailList) {
         float totalPrice = 0;
         for (ShowOderDetail orderDetail : showOderDetailList)
@@ -64,7 +58,6 @@ public class UserService {
             order.setAccount(acc);
             acc.getOrders().add(order);
             accountRepository.save(acc);
-            resetUserOrders(acc.getId());
             createdOrder = orderRepository.findOrderByDateAndAccount_Id(currentDate, acc.getId());
         } else createdOrder = order;
 
@@ -89,16 +82,11 @@ public class UserService {
     }
 
     public List<Order> userOrders(Long accId) {
-        if (this.orderList.isEmpty())
-            this.orderList = orderRepository.findByAccount_Id(accId);
-        return this.orderList;
+        return orderRepository.findByAccount_Id(accId);
     }
 
     public List<ShowOderDetail> allShowOrderDetails(Long orderId) {
         return orderDetailRepository.findShowOrderDetails(orderId);
     }
 
-    public void resetUserOrders(Long accId) {
-        this.orderList = orderRepository.findAll();
-    }
 }
