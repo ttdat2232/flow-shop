@@ -14,9 +14,9 @@
 <h3>Why I used those technologies: </h3>
 <ul>
   <li>JPA helps fast query to get Data from database</li>
-  <li>Spring Security helping me easily authenticate, authorize to my application</li>
+  <li>Spring Security helps easily authenticate, authorize for account to my application</li>
   <li>I used Thymeleaf instead of JSP because Thymeleaf is more readable and isn't a weird mixture of Java code and HTML</li>
-  <li>Lomok for fast getter/setter constructor...</li>
+  <li>Lomok for fast getter/setter, constructor,toString...</li>
 </ul>
 <h2>About this project:</h2>
 <h3>Normal user:</h3>
@@ -24,17 +24,22 @@
   <li>View products</li>
   <li>Login</li>
   <li>Sign up</li>
-  <li>Add product to cart</li>
+  <li>Add to cart</li>
   <li>View your cart</li>
-  <li>View Orders</li>
-  <li>View Orderdetails</li>
+  <li>View orders</li>
+  <li>View order details</li>
+  <li>Remove product in cart</li>
+  <li>Buy (force login)</li>
 </ul>
 <h3>Admin</h3>
 <ul>
   <li>Block user</li>
   <li>Add new product</li>
   <li>Can view all the users</li>
-  <li>Can view all the orders</li>
-  <li>Can view all the orders detail</li>
+  <li>Can view all the orders by account ID</li>
+  <li>Can view all the orders detail by account ID</li>
+  <li>Delete product</li>
+  <li>Update product</li>
+  <li>Add new product</li>
 </ul>
 
