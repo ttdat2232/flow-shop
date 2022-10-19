@@ -15,8 +15,7 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
 //    @Query("SELECT o FROM Order o WHERE o.date = :date AND o.account.id = :id ")
     Order findOrderByDateAndAccount_Id(LocalDate date, Long id);
 
-
-    @Query("SELECT o FROM Order  o WHERE o.account.id = :id")
-    List<Order> findByAccount_Id(@Param("id")Long id);
+//    @Query("SELECT o FROM Order  o WHERE o.account.id = :id")
+    List<Order> findByAccount_Id(Long id);
 
 }
