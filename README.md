@@ -44,23 +44,25 @@ This simply web app is used by Customer to buy flower or Admin to manage his/her
 ### Not logined:
 Index page:\
 <img width="350" src="https://github.com/ttdat2232/flow-shop/blob/main/screen-shot/notLogined/not-logined.png" alt="index page" />
-Cart Line:\
+\Cart Line:\
 <img width="350" src="https://github.com/ttdat2232/flow-shop/blob/main/screen-shot/notLogined/cart-line.png" alt="cart line" />
-Login form:\
+\Login form:\
 <img width="350" src="https://github.com/ttdat2232/flow-shop/blob/main/screen-shot/notLogined/login-form.png" alt="login form" />
-Sign up form:\
+\Sign up form:\
 <img width="350" src="https://github.com/ttdat2232/flow-shop/blob/main/screen-shot/notLogined/sign-up-form.png" alt="sign up form" />
+\
 
 ### User logined:
-Purchase history/Order:\ 
+\Purchase history/Order:\ 
 <img width="350" src="https://github.com/ttdat2232/flow-shop/blob/main/screen-shot/User/purchase-history.png" atl="purchase history"/>
-Order details:\
+\Order details:\
 <img width="350" src="https://github.com/ttdat2232/flow-shop/blob/main/screen-shot/User/order-detail.png" atl="order details"/>
+\
 
 ### Admin Logined:
-Add product:\
+\Add product:\
 <img width="350" src="https://github.com/ttdat2232/flow-shop/blob/main/screen-shot/Admin/add-product.png" atl="add product"/>
-Manage product:\
+\Manage product:\
 <img width="350" src="https://github.com/ttdat2232/flow-shop/blob/main/screen-shot/Admin/manage-product.png" atl="manage product"/>
-Manage user:\
+\Manage user:\
 <img width="350" src="https://github.com/ttdat2232/flow-shop/blob/main/screen-shot/Admin/manage-user.png" atl="manage user"/>
