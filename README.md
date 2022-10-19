@@ -1,45 +1,66 @@
-<h1>Flower Shop Management (still processing)</h1>
-<h2>Project's Description:</h2>
-<p>This simply web app is used by Customer to buy flower or Admin to manage his/her flower shop.</p>
-<h3>Some technologies I used for this web app:</h3>
-<ul>
-  <li>Spring Data JPA</li>
-  <li>Spring Security</li>
-  <li>Thymeleaf</li>
-  <li>MS SQL Server</li>
-  <li>Maven</li>
-  <li>Lombok</li>
-</ul>
-<br>
-<h3>Why I used those technologies: </h3>
-<ul>
-  <li>JPA helps fast query to get Data from database</li>
-  <li>Spring Security helps easily authenticate, authorize for account to my application</li>
-  <li>I used Thymeleaf instead of JSP because Thymeleaf is more readable and isn't a weird mixture of Java code and HTML</li>
-  <li>Lomok for fast getter/setter, constructor,toString...</li>
-</ul>
-<h2>About this project:</h2>
-<h3>Normal user:</h3>
-<ul>
-  <li>View products</li>
-  <li>Login</li>
-  <li>Sign up</li>
-  <li>Add to cart</li>
-  <li>View your cart</li>
-  <li>View orders</li>
-  <li>View order details</li>
-  <li>Remove product in cart</li>
-  <li>Buy (force login)</li>
-</ul>
-<h3>Admin</h3>
-<ul>
-  <li>Block user</li>
-  <li>Add new product</li>
-  <li>Can view all the users</li>
-  <li>Can view all the orders by account ID</li>
-  <li>Can view all the orders detail by account ID</li>
-  <li>Delete product</li>
-  <li>Update product</li>
-  <li>Add new product</li>
-</ul>
+# Flower Shop Management (in processing)
+## Project's Description:
+This simply web app is used by Customer to buy flower or Admin to manage his/her flower shop.
 
+### Some technologies I used for this web app:
+- Spring Data JPA
+- Spring Security
+- Thymeleaf
+- MS SQL Server
+- Maven
+- Lombok
+
+### Why I used those technologies: 
+- JPA helps fast query to get Data from database
+- Spring Security helps easily authenticate, authorize for account to my application
+- I used Thymeleaf instead of JSP because Thymeleaf is more readable and isn't a weird mixture of Java code and HTML
+- Lomok for fast getter/setter, constructor,toString...
+
+## About this project:
+
+### Normal user:
+- View products
+- Login
+- Sign up
+- Add to cart
+- View your cart
+- View orders
+- View order details
+- Remove product in cart
+- Buy (force login)
+
+### Admin
+- Block user
+- Add new product
+- Can view all the users
+- Can view all the orders by account ID
+- Can view all the orders detail by account ID
+- Delete product
+- Update product
+- Add new product
+
+## Screen shot
+
+### Not logined:
+Index page:
+<img width="350" src="https://github.com/ttdat2232/flow-shop/blob/main/screen-shot/notLogined/not-logined.png" alt="index page" />
+Cart Line:
+<img width="350" src="https://github.com/ttdat2232/flow-shop/blob/main/screen-shot/notLogined/cart-line.png" alt="cart line" />
+Login form
+<img width="350" src="https://github.com/ttdat2232/flow-shop/blob/main/screen-shot/notLogined/login-form.png" alt="login form" />
+Sign up form
+<img width="350" src="https://github.com/ttdat2232/flow-shop/blob/main/screen-shot/notLogined/sign-up-form.png" alt="sign up form" />
+
+### User logined:
+Purchase history/Order: 
+<img width="350" src="https://github.com/ttdat2232/flow-shop/blob/main/screen-shot/User/purchase-history.png" atl="purchase history"/>
+Order details:
+<img width="350" src="https://github.com/ttdat2232/flow-shop/blob/main/screen-shot/User/order-detail.png" atl="order details"/>
+
+### Admin Logined:
+Add product:
+<img width="350" src="https://github.com/ttdat2232/flow-shop/blob/main/screen-shot/Admin/add-product.png" atl="add product"/>
+Manage product:
+<img width="350" src="https://github.com/ttdat2232/flow-shop/blob/main/screen-shot/Admin/manage-product.png" atl="manage product"/>
+Manage user:
+<img width="350" src="https://github.com/ttdat2232/flow-shop/blob/main/screen-shot/Admin/manage-user.png" atl="manage user"/>
